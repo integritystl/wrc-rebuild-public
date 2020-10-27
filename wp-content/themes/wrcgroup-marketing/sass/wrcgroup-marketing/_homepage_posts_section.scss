@@ -1,0 +1,131 @@
+.homepage_posts_section {
+  @include outer-container();
+  padding: 30px 15px;
+  @media (min-width: $screen-sm) {
+    padding: 60px 15px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 0px;
+  }
+  h4 {
+    font-weight: 400;
+  }
+}
+.homepage_posts_section_posts_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 40px 0 40px;
+  @media screen and (min-width: $screen-sm) {
+    flex-direction: row;
+    margin: 60px 0 60px;
+  }
+}
+.homepage_post_item {
+  flex: 0 1 auto;
+
+  @media screen and (min-width: $screen-sm) {
+    flex: 0 1 33%;
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  + .homepage_post_item {
+    margin-top: 40px;
+    @media screen and (min-width: $screen-sm) {
+      margin-top: 0;
+    }
+  }
+}
+
+.homepage_posts_section_cta_container {
+  text-align: center;
+}
+.homepage_posts_section_cta {
+  @include alt_cta_button();
+}
+
+//Conditional wrapper to hold things if careers exist
+.homepage_has_careers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @include outer-container();
+  margin-top: 60px;
+  margin-bottom: 20px;
+  @media screen and (min-width: $screen-sm) {
+    flex-direction: row;
+  }
+
+  .homepage_posts_section {
+    padding: 0 30px 0 0;
+    margin: 0;
+    @media screen and (min-width: $screen-sm) {
+      flex: 0 1 68%;
+    }
+    .homepage_post_item {
+      flex: 0 1 45%;
+    }
+  }
+
+  .homepage_posts_section_posts_container {
+    margin: 30px 0 0;
+  }
+
+  .homepage_posts_section_cta_container {
+    margin-top: 40px;
+  }
+
+  //Careers that appear along side the homepage posts, if available
+  .homepage_careers_section {
+    background-color: $maroon;
+    //border: 1px solid $maroon;
+    color: white;
+    padding: 30px;
+    flex: 0 1 25%;
+    margin-top: 60px;
+    text-align: center;
+    height: 100%;
+    @media screen and (min-width: $screen-sm) {
+      margin-top: 0;
+      padding: 30px 30px;
+    }
+
+    h2 {
+      line-height: 1;
+      color: white;
+    }
+
+    h4 {
+      font-weight: 400;
+    }
+
+    p {
+      margin-bottom: 15px;
+      line-height: 1.25;
+      a {
+        color: white;
+
+        &:hover {
+          opacity: .75;
+        }
+      }
+    }
+
+    .homepage_careers_section_cta {
+      @include alt_cta_button();
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: white;
+      border-color: white;
+      &:hover {
+        background-color: white;
+        color: $maroon;
+      }
+    }
+  }
+}

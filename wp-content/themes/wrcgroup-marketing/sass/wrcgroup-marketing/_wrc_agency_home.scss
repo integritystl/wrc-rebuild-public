@@ -1,0 +1,370 @@
+.wrc-agency_hero_unit {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  @media screen and (min-width: $screen-md) {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+}
+
+.wrc-agency_hero_unit_container {
+  @include outer-container();
+  &.wrc-agency_hero_container {
+    display: flex;
+    justify-content: center;
+  }
+}
+.wrc-agency_hero_content_box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  max-width: 500px;
+  @media screen and (min-width: $screen-md) {
+    padding: 50px;
+  }
+  h1 {
+    margin: 0px;
+  }
+  //used on WRC Agency
+  &.hero_content_center {
+    text-align: center;
+    @media screen and (min-width: $screen-sm) {
+      max-width: 750px;
+    }
+  }
+}
+.wrc-agency_hero_cta {
+  @include cta_button();
+  margin-top: 40px;
+}
+
+// Assistance Icons
+.wrc-agency_home_full_width {
+  @include outer-container();
+  text-align: center;
+  padding: 30px 0 0;
+  @media screen and (min-width: $screen-md) {
+    padding: 60px 0 0;
+  }
+}
+.wrc-agency_home_full_width_content {
+  width: 650px;
+  margin: auto;
+  font-size: 18px;
+  font-family: $font-family-base;
+  font-weight: 400;
+}
+
+//WRC Agency Homepage Icon Callouts
+.wrc-agency_home_icon_container {
+  @include outer-container();
+  text-align: center;
+  padding: 30px 0 0;
+  @media screen and (min-width: $screen-md) {
+    padding: 40px 0 0;
+  }
+}
+
+.wrc-agency_home_icon_callouts {
+  @extend .wrc_home_assistance_icons;
+  margin: 0px auto;
+  justify-content: space-evenly;
+}
+
+.wrc-agency_home_icon_callouts_single_icon {
+  @extend .wrc_home_assistance_single_icon;
+  flex: 0 1 40%;
+  @media (min-width: $screen-sm) {
+    flex: 0 1 20%;
+  }
+}
+
+//Sections with BG Image aligned left or right
+.wrc-agency_home_split_bg_img {
+  background-repeat: no-repeat;
+  padding: 0;
+  margin-top: 10px;
+  background-color: $gray-light;
+  background-size: cover;
+
+  @media (min-width: $screen-sm) {
+    background-position: 100% 0;
+    background-size: contain;
+  }
+
+  &.split_bg_left {
+    @media (min-width: $screen-sm) {
+      background-position: 0 0;
+      background-size: contain;
+    }
+
+    .wrc-agency_home_split_bg_img_content {
+      @media (min-width: $screen-sm) {
+        max-width: 1200px;
+        width: 100%;
+        background: -moz-linear-gradient(
+          left,
+          rgba(255, 255, 255, 0) 30%,
+          rgba(246, 246, 246, 1) 75%
+        ); /* FF3.6-15 */
+        background: -webkit-linear-gradient(
+          left,
+          rgba(255, 255, 255, 0) 30%,
+          rgba(246, 246, 246, 1) 75%
+        ); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 30%,
+          rgba(246, 246, 246, 1) 75%
+        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(
+            startColorstr="#00ffffff",
+            endColorstr="#f6f6f6",
+            GradientType=1
+          ); /* IE6-9 */
+      }
+      .wrc-agency_home_split_bg_img_content_container {
+        max-width: 100%;
+        margin-left: 0%;
+        @media (min-width: $screen-sm) {
+          max-width: 45%;
+          margin-left: 55%;
+        }
+      }
+    }
+  }
+}
+
+.wrc-agency_home_split_bg_img_content {
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 300px;
+  position: relative;
+
+  .wrc-agency_home_split_bg_img_content_container {
+    max-width: 100%;
+    padding: 30px;
+
+    @media (min-width: $screen-sm) {
+      max-width: 45%;
+      padding: 0 30px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    ul {
+      margin: 25px 0 0;
+      padding-left: 18px;
+    }
+  }
+
+  @media (min-width: $screen-sm) {
+    padding: 90px 0;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+    background: -moz-linear-gradient(
+      left,
+      rgba(246, 246, 246, 1) 35%,
+      rgba(255, 255, 255, 0) 80%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      left,
+      rgba(246, 246, 246, 1) 35%,
+      rgba(255, 255, 255, 0) 80%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to right,
+      rgba(246, 246, 246, 1) 35%,
+      rgba(255, 255, 255, 0) 80%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(
+        startColorstr="#f6f6f6",
+        endColorstr="#00ffffff",
+        GradientType=1
+      ); /* IE6-9 */
+  }
+}
+
+// FIFTY FIFTY SECTIONS
+.wrc-agency_home_fifty_fifty_section {
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+  overflow: hidden;
+  margin-top: 60px;
+  .wrc-agency_home_fifty_fifty_section_content_container {
+    padding: 0 20px 0 60px;
+    float: left;
+  }
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+    .wrc-agency_home_fifty_fifty_section_content_container {
+      padding: 0 60px 0 20px;
+      float: right;
+    }
+  }
+}
+.wrc-agency_home_fifty_fifty_section_image {
+  overflow: hidden;
+  width: 52%;
+  img {
+    min-width: 100%;
+    max-width: none;
+    min-height: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.wrc-agency_home_fifty_fifty_section_content {
+  width: 48%;
+  max-width: 550px;
+  .wrc-agency_home_fifty_fifty_section_content_container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  ul {
+    margin-top: 2em;
+    margin-left: 0px;
+    padding-left: 18px;
+  }
+}
+//FULL WIDTH SECTIONS W/ BULLETS
+.wrc-agency_home_full_width_bullet_section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+  h2 {
+    text-align: center;
+  }
+}
+.wrc-agency_home_full_width_bullet_section_subhead {
+  max-width: 650px;
+  margin: 0 auto 20px;
+  text-align: center;
+  font-size: 18px;
+  font-family: $font-family-base;
+  font-weight: 400;
+  @media (min-width: $screen-sm) {
+    margin: 0 auto 40px;
+  }
+}
+.wrc-agency_home_full_width_bullet_section_overlay {
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.wrc-agency_home_full_width_bullet_section_container {
+  @include outer-container();
+  position: relative;
+  z-index: 5;
+}
+.wrc-agency_home_full_width_bullet_section_bullets {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  h4 {
+    width: 33%;
+    text-align: left;
+    line-height: 1.75;
+  }
+}
+
+.wrc-agency_agency_home_list_columns {
+  margin-left: 0;
+  padding-left: 1.5em;
+  @media (min-width: $screen-sm) {
+    columns: 120px 2;
+    column-gap: 40px;
+  }
+}
+
+//Agent Programs Section
+.wrc-agency_agency_home_programs {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @media (min-width: $screen-sm) {
+    flex-direction: row;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+.wrc-agency_agency_home_programs_col {
+  text-align: left;
+  padding: 0px 0px 10px;
+  @media (min-width: $screen-sm) {
+    width: 40%;
+    padding: 10px 20px 40px;
+  }
+  ul {
+    margin-top:25px;
+    margin-left: 5px;
+    padding-left: 18px;
+  }
+}
+
+//PARTNERSHIPS
+.wrc-agency_agency_partners {
+  background-color: $gray-light;
+  padding-bottom: 20px;
+  @media screen and (min-width: $screen-md) {
+    padding-bottom: 60px;
+  }
+}
+.wrc-agency_agency_home_partner_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+
+  @media (min-width: $screen-sm) {
+  }
+
+  li {
+    padding: 0px 40px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    margin-bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    img {
+      opacity: .5;
+      filter: grayscale(300%);
+    }
+
+  }
+}

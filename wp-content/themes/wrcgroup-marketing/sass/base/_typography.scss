@@ -1,0 +1,108 @@
+body,
+button,
+input,
+select,
+textarea,
+address {
+	color: $gray-dark;
+	font-family: $font-family-base;
+}
+
+button {
+	border: none;
+	&:focus {
+		outline: 1px solid $gray-medium;
+	}
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+h1 {
+	font-family: $font-family-cond;
+  font-size: 42px;
+  font-weight: 100;
+	line-height: 1.15;
+	margin: 0;
+	color: #444;
+	@media screen and (min-width: $screen-md) {
+		font-size: 68px;
+	}
+}
+h2 {
+	font-family: $font-family-cond;
+	font-size: 36px;
+  font-weight: 100;
+  color: #444;
+	line-height: 1.25;
+	margin: 0 0 20px;
+	@media screen and (min-width: $screen-md) {
+		font-size: 56px;
+	}
+}
+h3 {
+	font-family: $font-family-cond;
+  font-size: 30px;
+  font-weight: 300;
+  color: #444;
+	line-height: 1.15;
+	margin: 0 0 10px;
+	@media screen and (min-width: $screen-md) {
+		font-size: 36px;
+	}
+}
+h4,
+h5,
+h6 {
+	font-family: $font-family-cond;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 1.25;
+	margin: 0 0 10px;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+h6 {
+	font-size: 18px;
+}
+
+p {
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	margin: 0 0 20px;
+}
+
+ul,
+ol {
+	li {
+		font-size: 18px;
+		line-height: 1.5;
+		margin-bottom: 8px;
+		font-family: $font-family-base;
+		-webkit-font-smoothing: antialiased;
+	}
+}
+
+a {
+	color: $maroon;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out;
+	&:hover {
+		color: $gray-dark;
+	}
+	&:focus {
+		outline: 1px solid $gray-medium;
+		color: $gray-dark;
+	}
+}
+
+.screen-reader-text {
+	@include visually_hidden();
+}

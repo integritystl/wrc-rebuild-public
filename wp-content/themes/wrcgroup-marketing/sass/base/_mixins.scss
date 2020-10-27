@@ -1,0 +1,92 @@
+@mixin outer-container() {
+  max-width: 1200px;
+  margin: auto;
+  @media screen and (max-width: 1210px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@mixin cta_button() {
+  border: 1px solid $maroon;
+  background-color: $maroon;
+  font-family: $font-family-cond;
+  font-size: 24px;
+  font-weight: 400;
+  padding: 11px 24px;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  transition: all 0.3s ease-in-out;
+  &:hover,
+  &:focus {
+    border: 1px solid $maroon;
+    background-color: transparent;
+    color: $maroon;
+  }
+  &:disabled {
+    opacity: 0.3;
+    &:hover {
+      background-color: $maroon; //don't inherit a hover
+      color: white;
+    }
+  }
+
+}
+
+@mixin alt_cta_button() {
+  border: 1px solid $maroon;
+  font-family: $font-family-cond;
+  font-size: 24px;
+  font-weight: 400;
+  padding: 12px 25px;
+  color: $maroon;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  transition: all 0.3s ease-in-out;
+  &:hover,
+  &:focus {
+    background-color: $maroon;
+    color: white;
+  }
+  &:focus {
+    outline: 1px solid $gray-medium;
+  }
+  &:disabled {
+    opacity: 0.3;
+    &:hover {
+
+    }
+  }
+}
+
+@mixin visually_hidden() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin mobile_padding() {
+  @media screen and (max-width: $screen-xs) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@mixin post_list_base() {
+  padding: 20px 0 40px;
+  border-bottom: 1px solid $gray-medium;
+  margin-bottom: 20px;
+
+  &:last-child {
+    border-bottom: none;
+    margin-bottom: 0px;
+  }
+}

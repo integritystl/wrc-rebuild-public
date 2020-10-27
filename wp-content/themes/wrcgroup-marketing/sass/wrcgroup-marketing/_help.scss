@@ -1,0 +1,74 @@
+.help_content {
+	 margin-bottom: 40px;
+}
+.help_questions {
+
+}
+
+.help_single_answer,
+.help_single_answer p {
+	height: 0px;
+	opacity: 0;
+	margin: 0;
+}
+
+.help_single_answer {
+	transition: all 0.3s;
+}
+
+.nothing-useful{
+	
+}
+
+.help_single {
+	border: 1px solid $maroon;
+	padding: 20px 10px 10px 45px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 10px;
+
+	&_title {
+		cursor: pointer;
+	}
+
+	&:hover {
+		//border: 1px solid darken($maroon, 10%);
+		background: $gray-light;
+		h4, .fa {
+			//color: darken($maroon, 10%);
+		}
+	}
+	h4 {
+		color: $maroon;
+		line-height: 1.25;
+	}
+	.fa-minus {
+		display: none;
+	}
+
+	.fa {
+		position: absolute;
+		left: 20px;
+		top: 27px;
+		font-size: 1.15em;
+			color: $maroon;
+	}
+
+	&.open {
+		.help_single_answer,
+		.help_single_answer p {
+			height: auto;
+			opacity: 1;
+		}
+		.help_single_answer p {
+			margin: 0 0 20px 0;
+		}
+
+		.fa-minus {
+			display: inline-block;
+		}
+		.fa-plus {
+			display: none;
+		}
+	}
+}

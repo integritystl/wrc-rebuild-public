@@ -1,0 +1,37 @@
+{
+  "name": "wrc-marketing-rebuild",
+  "version": "1.0.0",
+  "description": "The WordPress marketing site rebuild for the WRC Group. ---",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/integritystl/WRC-Marketing-WPEngine.git"
+  },
+  "author": "Integrity STL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/integritystl/WRC-Marketing-WPEngine/issues"
+  },
+  "homepage": "https://github.com/integritystl/WRC-Marketing-WPEngine#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "node-bourbon": "^4.2.8",
+    "node-neat": "^2.0.0-beta.0"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "link": "^0.1.5",
+    "node": "^11.15.0",
+    "node-bourbon": "^4.2.8",
+    "node-neat": "^2.0.0-beta.0"
+  }
+}

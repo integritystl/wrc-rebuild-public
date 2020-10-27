@@ -1,0 +1,12 @@
+//Get dat sticky footer for the site
+//Ref: https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+//https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1 0 auto; //shove down, footer, use all args to keep IE11 happy
+}
