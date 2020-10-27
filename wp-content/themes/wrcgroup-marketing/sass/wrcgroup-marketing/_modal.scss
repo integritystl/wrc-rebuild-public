@@ -1,0 +1,252 @@
+//Dump in modal stuff we've already built from Old Site; need to review in case there's stuff we don't need
+/* Parsley.js base for validation styles */
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #468847;
+  background-color: #DFF0D8;
+  border: 1px solid #D6E9C6;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  color: #B94A48;
+  background-color: #F2DEDE;
+  border: 1px solid #EED3D7;
+}
+
+.parsley-errors-list {
+  &:empty{
+  //  display: none;
+  }
+
+  margin: 30px 0 10px;
+  padding: 0;
+  list-style-type: none;
+  opacity: 0;
+  color: #B94A48;
+  transition: all .3s ease-in;
+}
+
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+
+.parsley-error + .btn-primary {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border: none;
+}
+
+.parsley-error + .btn-primary:hover {
+    border-color: transparent;
+    background-color: #8b2131;
+}
+
+
+/* Modal */
+.modal .modal-fade-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(50, 50, 50, 0.85);
+  opacity: 0;
+  padding-top: 20px;
+  text-align: left;
+  transition: opacity 0.25s ease;
+  visibility: hidden;
+  z-index: 99999999999;
+  @media screen and (min-width: $screen-md) {
+    padding-top: 10em;
+  }
+}
+
+.modal .modal__close {
+  cursor: pointer;
+  float: right;
+  padding: 0 10px;
+  font-size: 24px;
+}
+
+.modal .modal__inner {
+  background: #fff;
+  margin: auto;
+  margin-top: 0;
+  max-height: 100%;
+  overflow: auto;
+  padding: 2em;
+  position: relative;
+  transition: opacity 0.25s ease;
+  max-width: 75%;
+  @media screen and (min-width: $screen-sm) {
+    max-height: 100%;
+    max-width: 50%; //need to be wide enough to read Policy Numbers on images
+  }
+  @media screen and (min-width: $screen-md) {
+    max-height: 100%;
+    // top: -100px;
+  }
+  //For modal screens involving Company Logos or buttons for 1st Ottomoation
+  &.modal__inner-select {
+    @media screen and (min-width: $screen-sm) {
+      //max-width: 35%;
+    }
+  }
+}
+
+.modal .modal__inner .modal__img {
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+}
+
+.modal .modal__img-group {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: $screen-md) {
+  .modal .modal__inner .modal__img {
+    float: left;
+    display: inline-block;
+    margin: 20px 20px 0 0;
+    width: 46%;
+  }
+
+  .modal .modal__inner .modal__img:last-of-type {
+    float: right;
+    margin: 0;
+  }
+}
+
+.modal__form {
+  display: block;
+  margin: 30px auto;
+  @media screen and (min-width: $screen-sm) {
+    width: 100%;
+  }
+}
+
+.modal__form input[type="text"] {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 12px 10px;
+  min-height: 35px;
+  box-sizing: border-box;
+  @media screen and (min-width: $screen-xs) {
+    width: calc(100% - 83px);
+  }
+}
+
+.modal__form input[type="submit"] {
+  margin-left: 0px;
+  margin-top: 10px;
+  padding: 8px 20px 9px;
+  width: 100%;
+  @media screen and (min-width: $screen-xs) {
+    width: auto;
+    margin-left: 10px;
+    margin-top: 0px;
+  }
+}
+
+.modal__form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modal__error {
+  text-align: center;
+
+  .parsley-customError + .parsley-policyTypeCheck {
+    display: none;
+  }
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-open .modal-fade-screen {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* For the URL we're grabbing for our JS */
+#bridge__url {
+  cursor: default;
+}
+
+.modal__hide {
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  //Edge behaves differently and displays both modals overlapping if we don't get this specific
+  .modal-fade-screen {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+// Wraps the Company logos used as 1st step
+.modal__company {
+  text-align: center;
+  transition: opacity 0.25s ease;
+  z-index: 3;
+  a {
+    display: block;
+    @media screen and (min-width: $screen-xs) {
+      display: inline-block;
+    }
+    &:focus {
+      .modal__logo,
+      .modal__logo .logo-inactive {
+        opacity: 0.7;
+      }
+    }
+    .modal__logo {
+      max-width: 150px;
+      padding: 10px;
+      margin: 10px;
+      max-height: 45px;
+      &:hover,
+      &:focus {
+        opacity: 0.7;
+      }
+      &.logo-inactive {
+        -webkit-filter: grayscale(1);
+         filter: grayscale(1);
+         opacity: 0.5;
+         &:hover,
+         &:focus {
+           opacity: 0.7;
+         }
+      }
+    }
+  }
+
+}
+
+.modal__btns {
+  text-align: center;
+  margin-top: 30px;
+}
+
+//Wraps the form that appears after choosing 1st Auto from Company Logos
+.modal__form-wrap {
+  transition: opacity 0.5s ease-in;
+}
+
+.firstOttoModalLink {
+  @include cta_button();
+  @media screen and (max-width: $screen-xs) {
+    &:first-of-type {
+        margin-bottom: 10px;
+    }
+  }
+}

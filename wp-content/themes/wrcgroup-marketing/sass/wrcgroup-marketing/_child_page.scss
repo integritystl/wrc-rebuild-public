@@ -1,0 +1,289 @@
+.child-page {
+  //@include outer-container;
+  display: flex;
+  flex-direction: column-reverse;
+  @include outer-container();
+
+  @media (min-width: $screen-sm) {
+    flex-direction: row-reverse;
+  }
+
+  @media screen and (max-width: $screen-sm) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .content-area {
+    padding: 20px 0 0 0;
+    @media (min-width: $screen-sm) {
+      width: 70%;
+      padding: 25px 0 40px 60px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.page-template-page-wrc-agency-home,
+.page-template-page-wrc-home {
+  .secondary__child-page {
+    display: none;
+    @media (max-width: $screen-sm) {
+      display: block;
+      margin: 20px;
+    }
+  }
+}
+
+
+.secondary__child-page {
+  @media (max-width: $screen-sm) {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  @media (min-width: $screen-sm) {
+    width: 30%;
+    margin-bottom: 0;
+    margin-top: 40px;
+  }
+
+  .nav-child-page__title {
+    padding: 20px;
+    display: block;
+    cursor: pointer;
+    border: 1px solid #e1e1e1;
+
+    &:after {
+      font-family: FontAwesome;
+      font-style: normal;
+      font-weight: normal;
+      content: "\f0c9";
+      margin-left: 5px;
+    }
+    @media (min-width: $screen-sm) {
+      display: none;
+    }
+
+
+    + .menu-child-page {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+        background-color: $gray-light;
+        border-left: 1px solid #e1e1e1;
+        border-right: 1px solid #e1e1e1;
+        border-top: 1px solid #e1e1e1;
+
+        @media (min-width: $screen-sm) {
+          max-height: inherit;
+          overflow: auto;
+          opacity: 1;
+        }
+    }
+    //Added when sidebar mobile menu is toggled open
+    &.open-menu {
+      + .menu-child-page {
+        max-height:inherit;
+        overflow: auto;
+        opacity: 1;
+
+        @media (min-width: $screen-sm) {
+          max-height: inherit;
+          overflow: auto;
+          opacity: 1;
+        }
+      }
+
+    }
+  }
+}
+
+//Child Page Sidebar Nav
+.menu-child-page,
+.children {
+  padding: 0px;
+  margin: 0px;
+//  list-style: none;
+}
+
+.menu-child-page {
+  list-style-type: none;
+
+  .subnav-toggle {
+      display: block;
+      color: $maroon;
+      text-align: center;
+      width: auto;
+      padding: 0;
+      z-index: 1;
+      position: absolute;
+      right: 15px;
+      top: 24px;
+      line-height: 1;
+      cursor: pointer;
+  }
+
+  > li {
+
+    > a {
+      font-size: 18px;
+      font-weight: 400;
+      &:hover {
+        color: white;
+        background-color: $maroon;
+        + .subnav-toggle {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+
+  li {
+   position: relative;
+   line-height: 1.5;
+   margin-bottom: 0px;
+
+    &.current_page_item,
+    &.current-cat {
+      >a {
+        background-color:$maroon;
+        color: white;
+        + .subnav-toggle {
+          color: #fff;
+        }
+      }
+    }
+
+    &.current_page_ancestor,
+    &.current_page_parent {
+      >a {
+        background: $maroon;
+        color: white;
+        + .subnav-toggle {
+          color: #fff;
+        }
+      }
+    }
+
+    &.page_item_has_children {
+      > a {
+        z-index: 1;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 20px 15px;
+      color: $link-color;
+      text-decoration: none;
+      border-bottom: 1px solid #e1e1e1;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    //toggle open dem submenus
+    &.open-child-menu {
+      > .children {
+        display: block !important;
+      }
+    }
+
+
+  }
+
+  .children {
+    display: none;
+    > li.page_item_has_children.current_page_ancestor.current_page_parent,
+      li.current_page_item {
+      >a {
+        background-color:#e5e5e5;
+        color: $maroon;
+        &:hover {
+          color: $maroon;
+        }
+        + .subnav-toggle {
+          color: $maroon;
+        }
+      }
+    }
+
+    a {
+      background-color: #efefef;
+      font-size: 16px;
+      &:hover {
+          background-color:#e5e5e5;
+      }
+
+    }
+
+    li > ul.children {
+      padding: 15px 0;
+      background-color: #f6f6f6;
+      display: none;
+          border-bottom: 1px solid #e1e1e1;
+      .open-child-menu {
+        border-bottom: none;
+      }
+    }
+
+    li > ul.children li {
+      padding: 10px 0px 10px 40px;
+      border: none;
+      background: transparent;
+      a {
+        font-size: 16px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        &:hover {
+         color: $maroon;
+         font-weight: bold;
+         background: none;
+        }
+      }
+
+    }
+
+    li > ul.children li.current_page_item,
+    li > ul.children li.current-cat {
+      >a {
+        background: none;
+        color: $maroon;
+        font-weight: bold;
+      }
+    }
+
+  }
+
+  // .current_page_item .children, .current_page_ancestor .children {
+  //   display: block;
+  // }
+}
+
+//I don't know where 404 style should live, so here's a container used for 404
+.page-full-width {
+  @include outer-container();
+  margin-top: 50px;
+}
+
+.menu-child-page .cat-item.active-item{
+  background-color: #7a2533;
+  a{
+    color: #fff;
+  }
+}
+
+.archive-title{
+  display: none;
+  &.visible{
+    display: block;
+  }
+}
+
+.news-title.hidden{
+  display: none;
+}

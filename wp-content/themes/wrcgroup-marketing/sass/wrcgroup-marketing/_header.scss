@@ -1,0 +1,344 @@
+//Things for WP Admin bar
+#wpadminbar {
+  //hide some icons for features we're not using so our User Image doesn't overlap any of the header
+  li#wp-admin-bar-comments,
+  li#wp-admin-bar-customize {
+    display: none !important;
+    visibility: hidden;
+  }
+}
+
+.top_nav {
+  border-bottom: 1px solid darken($gray-light, 5%);
+}
+.top_nav_container {
+  @include outer-container;
+  display: flex;
+}
+.organization_logo {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 5px 0 5px;
+  img {
+    max-height: 55px;
+    width: auto;
+    max-width: fit-content;
+  }
+}
+.top_nav .site_navigation {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  flex: 0 1 30%;
+  justify-content: flex-start;
+
+  @media screen and (max-width: $screen-sm) {
+    display: none;
+    visibility: hidden;
+  }
+}
+.eyebrow_nav {
+  display: flex;
+  flex: 0 1 65%;
+  justify-content: flex-end;
+
+  @media screen and (max-width: $screen-sm) {
+    flex: 0 1 100%;
+  }
+
+  .additional_nav_links_container{
+    display: flex;
+    position: relative;
+
+    @media screen and (max-width: $screen-sm) {
+      display: none;
+    }
+  }
+
+  .top_nav_item {
+    &:hover {
+      color: $maroon;
+      &:after {
+        transform: scaleX(0);
+      }
+    }
+  }
+}
+.top_nav_item {
+  margin-left: 25px;
+  font-size: 15px;
+  position: relative;
+  align-self: center;
+  text-align: center;
+  color: $gray-medium;
+  text-decoration: none;
+  top: 2px;
+  flex: 0 1 auto;
+  sup{
+    top: 0;
+    line-height: inherit;
+    margin-right: 2px;
+  }
+  &:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3px $maroon;
+    top: 15px;
+    position: relative;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+  &:hover {
+    color: $maroon;
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+  &.active {
+    color: $maroon;
+    &:after {
+      display: block;
+      content: '';
+      border-bottom: solid 3px $maroon;
+      top: 15px;
+      position: relative;
+      transform: scaleX(1);
+      transition: transform .3s ease-in-out;
+    }
+  }
+
+  &:first-child {
+    margin-left: 15px;
+  }
+
+  i {
+    font-size: 18px;
+  }
+  //Make sure this is visibily clickable for our search toggle
+  .fa-search {
+    cursor: pointer;
+    padding: 5px;
+  }
+}
+
+//This controls the newletter dropdowns
+.dropdown-newsletter{
+  position: relative;
+  &:before {
+    content: $fa-var-caret-down;
+    font-family: 'FontAwesome';
+    padding-right: 5px;
+  }
+}
+.child_nav_wrapper{
+  transition: opacity .5s ease-out;
+  opacity: 0;
+  display: none;
+  position: absolute;
+  bottom: -100px;
+  left: 14%;
+  padding:20px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 999;
+  background-color: #fff;
+  &.show{
+    opacity: 1;
+    display: block;
+  }
+  .child_nav{
+    padding:10px 0;
+  }
+}
+
+
+//Search Box
+.top_nav__search {
+  width: 0px;
+  display: block;
+  position: absolute;
+  right: 0px;
+  top: -8px;
+  overflow: hidden;
+  transition: all 0.3s;
+  #searchsubmit {
+      @include visually_hidden();
+    }
+  &.active {
+    width: 305px;
+
+    input.full_width {
+      width: 100%;
+      padding: 10px;
+      -webkit-appearance: none;
+    }
+
+
+  }
+  .fa-close {
+    position: absolute;
+    right: 7px;
+    top: 12px;
+    cursor: pointer;
+  }
+}
+
+.agent_mutual_login {
+  @include cta_button();
+  position: relative;
+  font-size: 15px;
+  padding: 11px 15px 13px;
+  font-family: $font-family-base;
+  font-weight: 500;
+  i {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+}
+
+.site_specific_menu{
+  border-bottom: 1px solid darken($gray-light, 5%);
+
+}
+
+.site_specific_menu_container {
+  @include outer-container();
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  @media screen and (max-width: $screen-sm) {
+    justify-content: space-between;
+  }
+}
+.site_specific_logo {
+  @media screen and (max-width: $screen-sm) {
+  }
+  a{
+    display: block;
+    position: relative;
+    svg{
+      height:60px;
+      max-width: 80%;
+    }
+  }
+
+}
+
+
+.site_top_menu {
+  //Output in a separetly generated mobile menu
+  display: none;
+  @media screen and (min-width: $screen-sm) {
+    display: flex;
+    margin: auto;
+  }
+  div {
+    display: flex;
+  }
+  ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    display: flex;
+
+    li {
+      margin-left: 20px;
+      margin-right: 20px;
+      cursor: pointer;
+      margin-bottom: 0px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      text-decoration: none;
+      &.page_item {
+        a {
+          color: $maroon;
+        }
+      }
+      a {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        color: $gray-dark;
+        text-decoration: none;
+        text-transform: uppercase;
+        &:hover {
+          color: $maroon;
+        }
+        &.active {
+          color: $maroon;
+        }
+      }
+    }
+  }
+}
+.site_phone {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: $gray-dark;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+
+  @media screen and (min-width: $screen-sm) {
+      margin: 0;
+  }
+
+  i {
+    margin-right: 5px;
+  }
+
+}
+
+//The Emergency Announcement that appears in the header when enabled
+.site-content {
+  position: relative;
+}
+.announcements-banner {
+  background-color: $brand-transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  .container {
+    @include outer-container;
+    position: relative;
+    padding: 25px 36px;
+  }
+  h4,
+  p,
+  a {
+    color: #fff;
+  }
+  .announcement-header {
+    margin-bottom: 5px;
+    font-size: 22px;
+    max-width: 80%; //don't smash into the Close link if the header is lenghty
+  }
+
+  .announcement-text {
+    font-size: 18px;
+  }
+
+  .announcement-close {
+    position: absolute;
+    top: 25px;
+    right: 36px;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+  &.closed {
+     display: none;
+  }
+}
+
+/*//No nav header for special pages*/
+.no-nav{
+  .top_nav_container{
+    padding:1em 20px;
+  }
+}

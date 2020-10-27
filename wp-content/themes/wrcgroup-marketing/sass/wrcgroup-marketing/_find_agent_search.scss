@@ -1,0 +1,486 @@
+.agent-search__container {
+	max-width: 1200px;
+	margin: auto;
+}
+
+//used to tell user when their location is being used for the search form
+.form-location-info {
+	display: block;
+	//font-size: 16px;
+	//font-family: $font-family-cond;
+	margin-bottom: 20px;
+	//this is hidden unless/until we have location from user
+	display: none;
+	visibility: hidden;
+	&:before {
+		content: '\f041';
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-decoration: inherit;
+		margin-right: 5px;
+	}
+	&.show-location {
+		display: block;
+		visibility: visible;
+	}
+}
+
+.form-location-reuse-wrapper{
+	margin-bottom: 15px;
+}
+
+.form-location-clear-button, .form-location-reuse-button{
+	padding: 10px 25px;
+	text-align: center;
+	background: #7a2533;
+	color: #fff;
+	cursor: pointer;
+	border: 0;
+	text-decoration: none;
+	transition: opacity 0.2s ease-out;
+	display: none;
+	visibility: hidden;
+	&.show-location {
+		display: inline-block;
+		visibility: visible;
+	}
+}
+
+.form-location-clear-info {
+	display: none;
+	visibility: hidden;
+
+	&.show-location {
+		display: inline-block;
+		visibility: visible;
+	}
+}
+
+.state-select {
+	list-style-type: none;
+	margin: 0;
+	text-indent: 0;
+	text-align: center;
+	padding: 0;
+	li {
+		display: inline-block;
+		&:last-child {
+			&:after {
+				content: '';
+				padding: 0;
+			}
+		}
+
+		&:after {
+			content: '|';
+			padding-left: 5px;
+		}
+		span {
+			font-family: $font-family-cond;
+			color: $maroon;
+			&:hover {
+				cursor: pointer;
+				color: darken($maroon, 10%);
+			}
+		}
+	}
+}
+
+.homepage_agent_search_block {
+	background: #eaeaea;
+	padding: 20px;
+	p {
+		display: block;
+    text-align: center;
+		margin-bottom: 10px;
+	}
+}
+
+.agent-search_block {
+	background: #eaeaea;
+	padding: 20px;
+	form {
+		display: flex;
+		@media screen and (max-width: 575px) {
+				display: block;
+		}
+	}
+	&.no-background {
+		background: none;
+		padding: 0px;
+		form {
+			display: block;
+		}
+	}
+	p {
+		display: block;
+    text-align: center;
+		margin-bottom: 10px;
+	}
+}
+
+.agent-search__form {
+	.agent_search-input {
+		position: relative;
+		width: calc(100% - 140px - 20px);
+	  display: inline-block;
+		margin-right: 10px;
+		i {
+			position: absolute;
+			top: 18px;
+			left: 12px;
+			color: $gray-medium;
+		}
+		@media screen and (max-width: 575px) {
+			width: 100%;
+			margin-right: 0px;
+		}
+	}
+	.agent-distance-search-box {
+		width: 100%;
+		text-indent: 20px;
+		padding: 15px;
+		box-sizing: border-box;
+
+	}
+	.agent-distance-search-submit {
+		display: inline-block;
+		@include cta-button();
+		padding: 10px 15px 11px !important;
+
+
+		@media screen and (max-width: 575px) {
+			width: 100%;
+			margin-top: 10px;
+			margin-left: 0px;
+		}
+
+	}
+}
+
+#agent-search__table_wrapper {
+	@include outer-container();
+}
+#agent-search__table {
+	width: 100%;
+	@media screen and (max-width: $screen-xs) {
+		th, td {
+			padding: 8px; //gotta make room for 4th column on mobile :\
+		}
+	}
+
+}
+#agent-search__table_filter {
+	text-align: right;
+	margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	@media screen and (max-width: 899px) {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: normal;
+	}
+
+	.search-label {
+		margin-right: 5px;
+	}
+
+	label {
+		flex: 0 1 45%;
+		align-self: right;
+		@media screen and (max-width: 899px) {
+			flex: 0 1 auto;
+			width: 100%;
+			text-align: left;
+		}
+	}
+	input {
+		margin-left: 10px;
+		min-width: 65%;
+		@media screen and (max-width: 899px) {
+			min-width: 80%;
+		}
+	}
+
+	//Try and avoid the IE11 default "clear" on this input because it won't clear our search terms
+	input::-ms-clear {  display: none; width : 0; height: 0; }
+	input::-ms-reveal {  display: none; width : 0; height: 0; }
+
+	.filter-term,
+	.search-term {
+		@include cta_button();
+		font-size: inherit;
+		padding: 5px 10px;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+	.fa-times-circle {
+		margin-left: 5px;
+	}
+
+	.agent-search-clear {
+		font-family: $font-family-cond;
+		font-size: 16px;
+		padding: 10px;
+		color: $maroon;
+		&:hover {
+			cursor: pointer;
+			color: darken($maroon, 10%);
+
+		}
+	}
+	.term-empty {
+		display: none;
+	}
+
+	#agent-search-term__container {
+		display: inline-block;
+		text-align: left;
+		flex: 0 1 55%;
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+		@media screen and (max-width: 899px) {
+			flex: 0 1 auto;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		&.no-terms {
+			opacity: 0;
+			visibility: hidden;
+			@media screen and (max-width: 899px) {
+				height: 0;
+			}
+		}
+	}
+
+}
+
+//class to hide full state name visibily so we can still search for it with Datatables
+.agent-full-state {
+	opacity: 0;
+	visibility: hidden;
+}
+
+#agent-search__table_info {
+	font-size: 14px;
+	font-style: italic;
+	@media screen and (max-width: 899px) {
+		text-align: center;
+	}
+}
+
+.agent_search_hero, .wrc-agency_states_served {
+	@include outer-container();
+	display: flex;
+	padding: 40px 0;
+	margin-bottom: 40px;
+	border-bottom: 1px solid $border-color;
+	@media screen and (max-width: 899px) {
+		padding: 20px 20px 70px;
+	}
+
+}
+
+.homepage_agent_search_image {
+	width: 55%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 0;
+	img {
+		max-width: 100%;
+		width: auto;
+	}
+	@media screen and (max-width: 899px) {
+		position: relative;
+		padding-top: 60px;
+		top:0;
+		transform: none;
+	}
+}
+.agent_search_image, .wrc-agency_states_served_image  {
+	width: 50%;
+	align-self: center;
+	@media screen and (max-width: 899px) {
+		margin-bottom: 20px;
+	}
+	img {
+		min-width: 100%;
+		max-width: 100%;
+	}
+}
+
+
+.homepage_agent_search_content-container {
+	@include outer-container();
+	display: flex;
+	justify-content: flex-end;
+	padding: 90px 0;
+	margin-bottom: 20px;
+	@media screen and (max-width: 899px) {
+		padding: 30px 20px 60px;
+	}
+}
+
+.agent_search_hero_content, .wrc-agency_states_served_content {
+	width: 50%;
+	a.homepage_agent_search_link {
+		@extend .post_item_read_more;
+	}
+}
+
+.homepage_agent_search_content {
+	width: 45%;
+	z-index: 2;
+	a.homepage_agent_search_link {
+		@extend .post_item_read_more;
+		display: inline-block;
+		margin-bottom: 30px;
+	}
+}
+@media screen and (max-width: 1090px) {
+	.agent_search_image {
+		width: 50%;
+		padding-top: 35px;
+	}
+	.agent_search_hero_content {
+		width: 50%;
+	}
+}
+@media screen and (max-width: 899px) {
+	.agent_search_hero {
+		display: block;
+	}
+	.agent_search_image {
+		width: 100%;
+		padding-top: 0px;
+	}
+	.agent_search_hero_content {
+		width: 100%;
+	}
+}
+.homepage_agent_search_submit {
+	@include cta_button();
+	padding: 10px 15px 11px !important;
+
+	@media screen and (max-width: 575px) {
+		width: 100%;
+		display: block;
+	}
+}
+.homepage_search-input {
+	position: relative;
+	input {
+		margin: 0;
+	}
+	i {
+		position: absolute;
+		top: 18px;
+    left: 12px;
+		color: $gray-medium;
+		@media screen and (max-width: 575px) {
+			top: 18px;
+		}
+	}
+}
+
+.homepage_search-input {
+		width: calc(100% - 160px);
+		display: inline-block;
+		margin-right: 10px;
+		@media screen and (max-width: 575px) {
+			width: 100%;
+			display: block;
+			margin-right: 0px;
+			margin-bottom: 20px;
+		}
+}
+
+.homepage_agent_search_input {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+	text-indent: 20px;
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+.homepage_agent_search {
+	background: #f6f6f6;
+	position: relative;
+}
+
+@media screen and (max-width: 899px) {
+	.homepage_agent_search {
+		display: block;
+		.homepage_agent_search_image, .homepage_agent_search_content, {
+			width: 100%;
+		}
+	}
+	.wrc-agency_states_served {
+		display: block;
+		.wrc-agency_states_served_image, .wrc-agency_states_served_content, {
+			width: 100%;
+		}
+	}
+}
+
+#agent-search__table_paginate {
+	text-align: center;
+	margin-top: 30px;
+	a {
+		cursor: pointer;
+		font-family: $font-family-cond;
+		font-size: 24px;
+	}
+	a.previous,
+	a.next {
+		&.disabled {
+			display: none;
+			color: $gray-medium;
+			cursor: not-allowed;
+		}
+	}
+	a.previous {
+		margin-right: 20px;
+	}
+	a.next {
+		margin-left: 20px;
+	}
+	a.current {
+		border-bottom: 3px solid $maroon;
+	}
+	.ellipsis {
+		font-size: 18px;
+	}
+	//span holding the pagination numbers
+	span {
+		a {
+			color: $gray-medium;
+			padding: 0 5px;
+			margin: 0 5px;
+			&:hover,
+			&:focus {
+				color: $maroon;
+			}
+		}
+		.current {
+			color: $maroon;
+			cursor: default;
+		}
+	}
+}
+
+.sorting {
+	&:after {
+		opacity: .5;
+	}
+}
+
+.secret-distance {
+	opacity: 0;
+	visibility: 0;
+}

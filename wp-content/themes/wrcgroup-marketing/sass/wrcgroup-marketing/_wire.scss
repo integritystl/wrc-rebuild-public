@@ -1,0 +1,259 @@
+//WiRe Page and Wire Archive page
+.child-page .wire-page {
+    padding: 25px 0 40px;
+    width: 100%;
+}
+
+
+.wire-title-super {
+    font-size: 2.5rem;
+}
+
+.wire-header {
+    position: relative;
+
+    .wire-header-sep {
+        display: inline-block;
+    }
+
+    h1 {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+.wire-grid-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    max-width: 1100px;
+
+    @media screen and (max-width: 700px) {
+        flex-flow: column wrap;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+.wire-grid-item {
+    box-sizing: border-box;
+    margin: 0 0 1.5rem 0;
+    padding-right: 1rem;
+    width: 25%;
+
+    &.wire-post {
+        width: 33%;
+
+        @media screen and (max-width: 700px) {
+            padding-right: 0;
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        padding-right: 0;
+        width: 100%;
+    }
+
+    h2 {
+        color: $brand-primary;
+        font-size: 1.5rem;
+        font-weight: 400;
+
+        a {
+            color: $brand-primary;
+        }
+    }
+
+    .feature-image {
+        background-color: gray;
+        
+        margin-bottom: 20px;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+
+        &:before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+        }
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @media screen and (max-width: 600px) {
+                //height: auto;
+            }
+        }
+    }
+
+    .wire-icon {
+
+        &::before {
+            content: "\f121";
+            color: #fff;
+            font-family: "dashicons";
+            font-size: 4rem;
+            opacity: .5;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}
+
+
+//Wire Single Issue Page
+
+.issue_template_right_section {
+    width: 100%;
+
+    .issue_template_content_section {
+        max-width: 1200px;
+    }
+}
+
+.issue-header {
+    background-color: $brand-primary;
+    color: #fff;
+    padding: 3rem 2rem;
+
+    h1 {
+        color: #fff;
+        font-weight: 200;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+.issue_template_content_section {
+    padding: 60px;
+
+    .presidents-message {
+        border-bottom: 1px solid $border-color;
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 60px;
+        padding-bottom: 60px;
+
+        @media screen and (max-width: 600px) {
+            flex-flow: column wrap;
+        }
+    }
+
+    .presidents-message-left {
+        margin-right: 30px;
+        max-width: 250px;
+        width: 30%;
+        
+        @media screen and (max-width: 600px) {
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .president-name {
+        color: $gray-dark;
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+        padding-top: .5rem;
+    }
+    .president-job-title {
+        color: $gray-dark;
+        display: block;
+        font-size: 12px;
+        padding-top: .5rem;
+    }
+
+    .president-excerpt {
+        max-width: 32em;
+
+        @media screen and (max-width: 600px) {
+            max-width: 100%;
+        }
+    }
+
+    .wire-posts-headline {
+        font-size: 28px;
+        font-weight: 300;
+        margin-bottom: 60px;
+        text-align: center;
+    }
+}
+
+.single-wire-post,
+.single-mutual-manager-post {
+    .wire-post-thumbnail {
+        width: 100%;
+
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
+    h1 {
+        color: $gray-medium;
+        font-size: 36px;
+        margin-top: 30px;
+    }
+
+    .back-to-issue {
+        display: block;
+        font-weight: 400;
+        margin: -30px 0 30px;
+        text-decoration: none;
+
+        &::before {
+            content: $fa-var-caret-left;
+            font-family: 'FontAwesome';
+            padding-right: 5px;
+        }
+    }
+
+    .issue-meta {
+        color: $brand-primary;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    .news-links {
+        display: flex;
+        justify-content: space-between;
+
+        a::before {
+            content: $fa-var-caret-left;
+            font-family: 'FontAwesome';
+            padding-right: 5px;
+        }
+
+        a:nth-last-of-type(1) {
+            margin-right: 0;
+            padding-right: 0;
+            text-align: right;
+            
+        }
+        
+        a:nth-last-of-type(1)::before {
+            content: "";
+            padding-right: 0;
+        }
+        a:nth-last-of-type(1)::after {
+            content: $fa-var-caret-right;
+            font-family: 'FontAwesome';
+            padding-left: 5px;
+        }
+
+    }
+}

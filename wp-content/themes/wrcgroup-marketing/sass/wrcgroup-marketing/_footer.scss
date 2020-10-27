@@ -1,0 +1,238 @@
+.site-footer {
+  background-color: $gray-light;
+  padding: 30px 0 30px;
+  margin-top: 40px;
+  text-align: center;
+  background-image: url('images/footer-wrc-building.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+
+  @media (min-width: $screen-sm) {
+    padding: 50px 0 30px;
+  }
+
+  .site-info {
+    @include outer-container;
+  }
+
+  .group-logo{
+    margin:30px auto;
+    img{
+      max-width: 350px;
+    }
+  }
+
+  .footer-logos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  //Our SVG logos of each site that have an active state based on which site you're on
+  
+  .footer-logo {
+    align-self: center;
+    flex: 0 1 100px;
+    padding: 10px 0;
+    margin: 0 10px;
+
+    svg {
+      height: 30px;
+      path,rect {
+        transition: fill 0.5s ease;
+      }
+      @media (min-width: $screen-sm) {
+        height:35px;
+      }
+    }
+
+    // Making the not-active logo gray, since WRC Agency logo uses 2 colors
+    &:not(.active) {
+      svg {
+        path, rect {
+         fill: lighten($gray-dark, 25%);
+        }
+
+      }
+    }
+    &:hover {
+      svg {
+        path, rect {
+          fill: $maroon;
+        }
+      }
+    }
+  }
+
+  %footer-menu-base {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+
+    li {
+      font-family: $font-family-base;
+      a {
+        color: $gray-dark;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px;
+        &:hover {
+          color: $maroon;
+        }
+      }
+    }
+  }
+  //
+  // .footer-site-menu ul,
+  // .footer-global-menu ul {
+  //   @extend %footer-menu-base;
+  //   @media screen and (min-width: $screen-sm) {
+  //     display: flex;
+  //     justify-content: center;
+  //   }
+  //
+  //   li {
+  //       @media screen and (min-width: $screen-sm) {
+  //         flex: 0 1 auto;
+  //         align-self: center;
+  //       }
+  //
+  //     a {
+  //
+  //     }
+  //   }
+  // }
+  //Footer menu specific to the site we're on
+  .footer-site-menu {
+    ul {
+       @extend %footer-menu-base;
+       @media screen and (min-width: $screen-sm) {
+         display: flex;
+         justify-content: center;
+       }
+    }
+    li {
+      @media screen and (min-width: $screen-sm) {
+        margin-right: 20px;
+        flex: 0 1 auto;
+        align-self: center;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .footer-global-menu {
+    margin: 30px auto 5px;
+    max-width: 750px;
+    border-top: 1px solid darken($border-color, 5%);
+    padding-top: 30px;
+    ul {
+      @media screen and (min-width: $screen-sm) {
+        display: flex;
+        justify-content: center;
+      }
+
+      padding: 0px;
+      margin: 0px;
+      list-style: none;
+    }
+    li {
+      @media screen and (min-width: $screen-sm) {
+        margin-right: 20px;
+        flex: 0 1 auto;
+        align-self: center;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+      a {
+        color: $gray-dark;
+        text-transform: none;
+        text-decoration: none;
+        font-size: 14px;
+        padding: 10px;
+        &:hover {
+          color: $maroon;
+        }
+      }
+    }
+  }
+
+  .footer-social {
+    padding: 0 80px;
+
+    @media screen and (min-width: $screen-sm) {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    small {
+      display: block;
+      width: 60%;
+      font-size: 90%;
+      margin: 0 auto 100px; //helps keep readibility by not running into the left-position BG image
+      @media screen and (min-width: $screen-sm) {
+        flex-grow: 0.85;
+        font-size: 80%;
+        margin: 0;
+        width: auto;
+      }
+    }
+    a {
+      font-size: 1.5em;
+      padding: 10px;
+      margin-left: 5px;
+      color: $maroon;
+      display: inline-block;
+      @media screen and (min-width: $screen-sm) {
+        flex-grow: 0;
+        order: 2;
+      }
+      &:hover {
+        color: $gray-dark;
+      }
+    }
+
+    &:after {
+      clear: both;
+    }
+  }
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 60px;
+    //height: 40px;
+    padding: 10px 5px;
+    text-align: center;
+    //line-height: 30px;
+    background: $maroon;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+    &:after {
+      content: 'Back To Top';
+      display: block;
+      font-size: 12px;
+      font-family: $font-family-cond;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+}
+#back-to-top:hover {
+    background: darken($maroon, 10%);
+}
+#back-to-top.show {
+    opacity: 1;
+}

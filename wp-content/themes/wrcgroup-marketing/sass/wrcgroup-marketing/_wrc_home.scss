@@ -1,0 +1,328 @@
+.page-template-page-wrc-home {
+  h2 {
+    line-height: 1.071428571428571;
+  }
+  h4 {
+    font-size: 18px;
+    @media screen and (min-width: $screen-xs) {
+      font-size: 24px;
+    }
+  }
+}
+.wrc_hero_unit {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  @media screen and (min-width: $screen-md) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.wrc_hero_unit_container {
+  @include outer-container();
+  &.wrc_agency_hero_container {
+    display: flex;
+    justify-content: center;
+  }
+}
+.wrc_hero_content_box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  max-width: 385px;
+  @media screen and (min-width: $screen-md) {
+    padding: 60px;
+  }
+  h1 {
+    margin: 0px;
+    line-height: 1.125;
+  }
+  //used on WRC Agency
+  &.hero_content_center {
+    text-align: center;
+    @media screen and (min-width: $screen-sm) {
+      max-width: 750px;
+    }
+  }
+}
+.wrc_hero_cta {
+  @include cta_button();
+  line-height: 1.125;
+  display: block;
+  font-size: 18px;
+  text-align: center;
+  margin: 30px auto 0;
+  @media screen and (min-width: $screen-xs) {
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 24px;
+    text-align: left;
+  }
+}
+
+// Assistance Icons
+.wrc_home_full_width {
+  @include outer-container();
+  text-align: center;
+  padding: 60px 0 40px;
+}
+.wrc_home_full_width_content {
+  text-align: center;
+  margin: 0 auto 30px;
+  @media screen and (min-width: 650px) {
+    width: 650px;
+  }
+  p {
+    font-family: $font-family-base;
+    font-weight: 400;
+  }
+}
+.wrc_home_assistance_icons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-flow: row;
+  flex-wrap: wrap;
+  margin: 0 auto 30px;
+  @media (min-width: $screen-sm) {
+    flex-wrap: nowrap;
+  }
+}
+.wrc_home_assistance_single_icon {
+  display: block;
+  padding: 20px 10px;
+  text-decoration: none;
+  width: 100%;
+  @media (min-width: $screen-xs) {
+    width: 40%;
+  }
+  @media (min-width: $screen-sm) {
+    width: auto;
+  }
+  &:focus {
+    outline: none;
+    &:after {
+      display: block;
+      content: "";
+      border-bottom: solid 3px $maroon;
+      transform: scaleX(0.65);
+      transition: transform 0.3s ease-in-out;
+      top: 5px;
+      position: relative;
+    }
+  }
+  &:after {
+    display: block;
+    content: "";
+    border-bottom: solid 3px $maroon;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+    top: 5px;
+    position: relative;
+  }
+  img {
+    max-height: 75px;
+    height: 75px;
+  }
+  h4 {
+    color: $maroon;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+  }
+  &:hover {
+    &:after {
+      transform: scaleX(0.65);
+    }
+  }
+}
+
+//WRC Agency Homepage Icon Callouts
+.wrc_home_icon_callouts {
+  @extend .wrc_home_assistance_icons;
+  margin: 20px auto 0;
+  justify-content: space-evenly;
+}
+
+.wrc_home_icon_callouts_single_icon {
+  @extend .wrc_home_assistance_single_icon;
+  flex: 0 1 40%;
+  @media (min-width: $screen-sm) {
+    flex: 0 1 20%;
+  }
+  @media (min-width: $screen-md) {
+  }
+}
+
+//Sections with BG Image aligned left or right
+.wrc_home_split_bg_img {
+  background-repeat: no-repeat;
+  padding: 0;
+
+  @media (min-width: $screen-sm) {
+    background-position: 125% 0;
+    background-size: contain;
+  }
+
+  &.split_bg_left {
+    @media (min-width: $screen-sm) {
+      background-position: -40% 0;
+    }
+
+    .wrc_home_split_bg_img_content {
+      @media (min-width: $screen-sm) {
+        max-width: none;
+        margin-left: 50%;
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 130, 170, 0),
+            $gray-light
+          ),
+          linear-gradient(to right, rgba(0, 130, 170, 0), $gray-light),
+          linear-gradient(to right, rgba(0, 130, 170, 0), $gray-light),
+          linear-gradient(to right, rgba(0, 130, 170, 0), $gray-light 20%);
+      }
+    }
+  }
+}
+
+.wrc_home_split_bg_img_content {
+  text-align: initial;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+
+  @media (min-width: $screen-sm) {
+    padding: 90px 60px;
+    max-width: 40%;
+    background-color: transparent;
+    //try to make a fadey-gradient overlay with CSS so we don't have to depend on an Image's Gradient
+    background-image: linear-gradient(
+        to left,
+        rgba(0, 130, 170, 0),
+        $gray-light
+      ),
+      linear-gradient(to left, rgba(0, 130, 170, 0), $gray-light),
+      linear-gradient(to left, rgba(0, 130, 170, 0), $gray-light),
+      linear-gradient(to left, rgba(0, 130, 170, 0), $gray-light 30%);
+  }
+}
+
+// FIFTY FIFTY SECTIONS
+.wrc_home_fifty_fifty_section {
+  overflow: hidden;
+  margin-bottom: 60px;
+  @media screen and (min-width: $screen-sm) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .wrc_home_fifty_fifty_section_content_container {
+    padding: 15px 15px 0;
+    @media screen and (min-width: $screen-sm) {
+      padding: 0 60px 0 20px;
+      float: right;
+    }
+  }
+  &:nth-child(even) {
+    flex-direction: row;
+    .wrc_home_fifty_fifty_section_content_container {
+      @media screen and (min-width: $screen-sm) {
+        padding: 0 20px 0 60px;
+        float: left;
+      }
+    }
+  }
+}
+.wrc_home_fifty_fifty_section_image {
+  @media screen and (min-width: $screen-sm) {
+    overflow: hidden;
+    width: 52%;
+  }
+  img {
+    min-width: 100%;
+    max-width: none;
+    min-height: 100%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.wrc_home_fifty_fifty_section_content {
+  @media screen and (min-width: $screen-sm) {
+    width: 48%;
+    max-width: 550px;
+  }
+  .wrc_home_fifty_fifty_section_content_container {
+    position: relative;
+    @media screen and (min-width: $screen-sm) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  p {
+    margin-bottom: 0;
+  }
+  ul {
+    margin: 30px 0 0;
+    padding-left: 18px;
+    @media screen and (min-width: $screen-sm) {
+      margin: 30px 0 0;
+    }
+    li {
+      font-size: 18px;
+      line-height: 1.25;
+      font-family: inherit;
+    }
+  }
+}
+//FULL WIDTH SECTIONS W/ BULLETS
+.wrc_home_full_width_bullet_section {
+  padding: 30px 0;
+  position: relative;
+  @media (min-width: $screen-sm) {
+    padding: 60px 0;
+    margin-bottom: 60px;
+  }
+  h2 {
+    text-align: center;
+  }
+  .wrc_home_full_width_content {
+    margin: 0 auto 30px;
+    @media (min-width: $screen-xs) {
+      margin: 0 auto 40px;
+    }
+  }
+}
+
+.wrc_home_full_width_bullet_section_overlay {
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.3;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.wrc_home_full_width_bullet_section_container {
+  @include outer-container();
+  position: relative;
+  z-index: 5;
+}
+.wrc_home_full_width_bullet_section_bullets {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  h4 {
+    text-align: center;
+    line-height: 1.5;
+    width: 100%;
+    @media (min-width: $screen-sm) {
+      width: 33%;
+    }
+
+  }
+}
